@@ -36,13 +36,16 @@ Hanami::Model.configure do
   # Alternatively, you can use a block syntax like the following:
   #
   mapping do
-    # collection :users do
-    #   entity     User
-    #   repository UserRepository
-    #
-    #   attribute :id,   Integer
-    #   attribute :name, String
-    # end
+    collection :events do
+      entity     Event
+      repository EventRepository
+
+      attribute :id,         Integer
+      attribute :name,       String
+      attribute :version,    String
+      attribute :actor,      String
+      attribute :data,       'jsonb'
+      attribute :created_at, DateTime
   end
 end.load!
 
