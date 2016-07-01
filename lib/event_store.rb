@@ -1,5 +1,7 @@
 require 'hanami/model'
 require 'hanami/mailer'
+require_relative './ext/pg_jsonb'
+
 Dir["#{ __dir__ }/event_store/**/*.rb"].each { |file| require_relative file }
 
 Hanami::Model.configure do
@@ -44,8 +46,9 @@ Hanami::Model.configure do
       attribute :name,       String
       attribute :version,    String
       attribute :actor,      String
-      attribute :data,       'jsonb'
+      attribute :data,       PGJsonb
       attribute :created_at, DateTime
+    end
   end
 end.load!
 
