@@ -4,8 +4,7 @@ gem 'bundler'
 gem 'rake'
 gem 'hanami',       '0.7.2'
 gem 'hanami-model', '~> 0.5'
-
-
+gem 'hanami-validations'
 gem 'pg'
 
 group :test do

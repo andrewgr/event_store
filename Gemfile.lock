@@ -92,6 +92,7 @@ DEPENDENCIES
   capybara
   hanami (= 0.7.2)
   hanami-model (~> 0.5)
+  hanami-validations
   minitest
   pg
   pry

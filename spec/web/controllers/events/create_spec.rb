@@ -4,10 +4,19 @@ require_relative '../../../../apps/web/controllers/events/create'
 describe Web::Controllers::Events::Create do
   let(:action) { Web::Controllers::Events::Create.new }
 
-
   describe 'with valid params' do
-    let(:payload) { {test:'test'}.to_json }
-    let(:params)  { Hash[event: { name: "Event", actor: "Actor", version: "1.0", payload: payload }] }
+
+    let(:params) do
+      {
+        event: {
+          name:       "Event",
+          actor:      "Actor",
+          version:    "1.0",
+          data:       { test: :test },
+          created_at: Date.today
+        }
+      }
+    end
 
     it 'is successful' do
       response = action.call(params)
@@ -24,4 +33,3 @@ describe Web::Controllers::Events::Create do
     end
   end
 end
-#{ name: ‘event name as string’, actor: ‘actor token as string’, version: ‘1.0’, payload: {JSON object} }
