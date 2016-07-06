@@ -1,14 +1,13 @@
+require 'hanami/validations'
+require_relative '../../ext/pg_jsonb'
+
 class Event
   include Hanami::Entity
   include Hanami::Validations
 
-  attributes :name, :version, :actor, :created_at, :data
-
-  validations do
-    required(:name)       { filled? }
-    required(:version)    { filled? }
-    required(:actor)      { filled? }
-    required(:created_at) { filled? }
-    required(:data)       { filled? }
-  end
+  attribute :name,       presence: true
+  attribute :version,    presence: true
+  attribute :actor,      presence: true
+  attribute :created_at, presence: true, type: DateTime
+  attribute :data,       presence: true#, type: PGJsonb
 end
