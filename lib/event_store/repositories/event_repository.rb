@@ -7,7 +7,7 @@ class EventRepository
     end
   end
 
-  def self.by_name(names)
+  def self.filetr_by_name(names)
     query { where(name: names) }
   end
 end

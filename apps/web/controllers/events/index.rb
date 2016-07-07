@@ -16,7 +16,7 @@ module Web::Controllers::Events
       names = names.to_s.split(',')
 
       @events = EventRepository.paginate(limit, after).tap do |query|
-        query.by_name(names) unless names.empty?
+        query.filetr_by_name(names) unless names.empty?
       end.all
     end
   end
