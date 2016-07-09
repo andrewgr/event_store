@@ -7,6 +7,7 @@ describe Web::Views::Events::Create do
   let(:view)      { Web::Views::Events::Create.new(template, exposures) }
   let(:rendered)  { view.render }
 
+  # TODO: Please remove this or finish this test :)
   #it 'exposes #foo' do
     #view.foo.must_equal exposures.fetch(:foo)
   #end

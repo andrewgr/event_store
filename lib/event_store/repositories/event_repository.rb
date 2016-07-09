@@ -7,6 +7,7 @@ class EventRepository
     end
   end
 
+  # TODO: plz fix the method name
   def self.filetr_by_name(names)
     query { where(name: names) }
   end
