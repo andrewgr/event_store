@@ -9,5 +9,6 @@ class Event
   attribute :version,    presence: true
   attribute :actor,      presence: true
   attribute :created_at, presence: true, type: DateTime
+  # TODO: remove comment
   attribute :data,       presence: true#, type: PGJsonb
 end
