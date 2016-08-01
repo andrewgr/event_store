@@ -108,11 +108,11 @@ module Web
 
       # The layout to be used by all views
       #
-      layout :application # It will load Web::Views::ApplicationLayout
+      #layout :application # It will load Web::Views::ApplicationLayout
 
       # The relative path to templates
       #
-      templates 'templates'
+      #templates 'templates'
 
       ##
       # ASSETS
