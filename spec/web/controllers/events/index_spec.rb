@@ -9,7 +9,7 @@ describe Web::Controllers::Events::Index do
     EventRepository.clear
 
     @events = (1..3).map do |i|
-      event = Event.new(name: "event#{i}", actor: "a", version: "1", data: {}, created_at: Date.today)
+      event = Event.new(name: "event#{i}", actor: "a", version: "1", data: {})
       EventRepository.create(event)
     end
   end
@@ -46,13 +46,13 @@ describe Web::Controllers::Events::Index do
   end
 
   describe "with filtering by name" do
-    let(:params) { { names: "event1,event3" } }
+    let(:params) { { names: "event1, event3" } }
 
     it 'is successful' do
       response = action.call(params)
 
       response[0].must_equal 200
-      #action.events.must_equal [@events[0], @events[2]]
+      action.events.must_equal [@events[0], @events[2]]
     end
   end
 end
