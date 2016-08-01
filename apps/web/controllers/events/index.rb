@@ -13,7 +13,7 @@ module Web::Controllers::Events
     def call(params)
       limit = params[:limit] || 10
       after = params[:after] || 0
-      names = names.to_s.split(',')
+      names = params[:names].to_s.split(',').map(&:strip)
 
       @events = EventRepository.paginate(limit, after).tap do |query|
         query.filetr_by_name(names) unless names.empty?
